@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multilingual NLP Pipeline</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🌍 Multilingual NLP Pipeline</h1>
+        <form method="POST">
+            <label for="text_input">Enter Text (any language):</label>
+            <textarea id="text_input" name="text_input" rows="6" required>{{ results.text if results else '' }}</textarea>
+
+            <label for="target_lang">Translate to:</label>
+            <select name="target_lang" id="target_lang">
+                <option value="en_XX">English</option>
+                <option value="fr_XX">French</option>
+                <option value="hi_IN">Hindi</option>
+                <option value="es_XX">Spanish</option>
+                <option value="de_DE">German</option>
+            </select>
+
+            <button type="submit">Analyze</button>
+        </form>
+
+        {% if results %}
+        <div class="results">
+            <h2>🔍 Results</h2>
+            <p><strong>Detected Language:</strong> {{ results.lang }}</p>
+
+            <h3>🗣️ Sentiment Analysis</h3>
+            <pre>{{ results.sentiment }}</pre>
+
+            <h3>🏷️ Named Entity Recognition</h3>
+            <pre>{{ results.ner }}</pre>
+
+            <h3>🌐 Translation</h3>
+            <pre>{{ results.translation }}</pre>
+
+            <h3>📝 Summary</h3>
+            <pre>{{ results.summary }}</pre>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
+

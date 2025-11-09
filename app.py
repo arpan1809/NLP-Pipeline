@@ -12,7 +12,7 @@ ner_pipeline = pipeline("ner", model="Davlan/xlm-roberta-base-ner-hrl", grouped_
 translator_pipeline = pipeline("translation", model="facebook/mbart-large-50-many-to-many-mmt", tokenizer="facebook/mbart-large-50-many-to-many-mmt")
 summarization_pipeline = pipeline("summarization", model="facebook/bart-large-cnn")
 
-# Function to summarize long texts by chunking them
+
 def summarize_long_text(text, max_chunk=1024):
     chunks = [text[i:i+max_chunk] for i in range(0, len(text), max_chunk)]
     summaries = []
@@ -82,5 +82,6 @@ def index():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
 

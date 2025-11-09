@@ -24,7 +24,7 @@ def summarize_long_text(text, max_chunk=1024):
             summaries.append(f"[Error] {str(e)}")
     return " ".join(summaries)
 
-# Map langdetect codes to mBART50 codes
+
 lang_map = {
     "en": "en_XX",
     "fr": "fr_XX",
@@ -82,6 +82,7 @@ def index():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
 
 

@@ -6,7 +6,7 @@ from langdetect import detect
 
 app = Flask(__name__)
 
-# Load transformers pipelines
+
 sentiment_pipeline = pipeline("sentiment-analysis", model="nlptown/bert-base-multilingual-uncased-sentiment")
 ner_pipeline = pipeline("ner", model="Davlan/xlm-roberta-base-ner-hrl", grouped_entities=True)
 translator_pipeline = pipeline("translation", model="facebook/mbart-large-50-many-to-many-mmt", tokenizer="facebook/mbart-large-50-many-to-many-mmt")
@@ -82,4 +82,5 @@ def index():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 

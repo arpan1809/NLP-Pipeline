@@ -31,7 +31,7 @@ lang_map = {
     "hi": "hi_IN",
     "es": "es_XX",
     "de": "de_DE",
-    # Add more as needed
+   
 }
 
 @app.route('/', methods=['GET', 'POST'])
@@ -82,6 +82,7 @@ def index():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
 
 
